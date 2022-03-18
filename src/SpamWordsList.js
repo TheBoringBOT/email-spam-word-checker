@@ -1,3 +1,5 @@
+// list used from https://mailmeteor.com/blog/spam-words
+
 const spamWordsList = {
   urgent: [
     { icon: "🚨" },
