@@ -1,6 +1,6 @@
 // list used from https://mailmeteor.com/blog/spam-words
 
-const spamWordsList = {
+const SpamWordsList = {
   urgent: [
     { icon: "🚨" },
     "Access",
@@ -786,3 +786,5 @@ const spamWordsList = {
     "Work from home",
   ],
 };
+
+export default SpamWordsList;
