@@ -6,7 +6,7 @@ import Preloader from "./parts/Preloader";
 function Layout({ children }) {
   const [loading, setLoading] = useState(true);
 
-  // hide preloader after 1.5s
+  // hide preloader after
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
