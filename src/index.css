@@ -25,6 +25,10 @@ body {
   box-shadow: 8px 8px #c1bffa;
 }
 
+.solid-shadow-2 {
+  box-shadow: 5px 5px #1b1b1b;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -71,5 +75,26 @@ textarea {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, -0px);
   }
 }
