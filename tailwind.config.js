@@ -3,8 +3,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "bubble-gum": "#ff77e9",
-        accent: "#78dcca",
+        "text-primary": "#1B1B1B",
+        "text-secondary": "#46463b",
+
+        accent: "#F9E450",
+        accent2: "#C1BFFA",
       },
     },
   },

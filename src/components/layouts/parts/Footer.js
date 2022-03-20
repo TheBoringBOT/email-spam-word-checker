@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="flex justify-between py-5 px-3 text-slate-400">
+    <div className="mt-auto flex justify-between py-5 px-3 text-text-secondary">
       <span className="text-sm">
         “Either you run the day or the day runs you.” — Jim Rohn
       </span>
       <a
         href="https://github.com/TheBoringBOT/email-spam-word-checker?utm_source=app&utm_medium=website&utm_campaign=general"
-        className="transition  duration-300 ease-in-out fill-slate-400 hover:fill-slate-600"
+        className="transition  duration-300 ease-in-out fill-text-secondary hover:fill-text-primary"
       >
         <svg
           height="20"

@@ -15,7 +15,7 @@ function Layout({ children }) {
   return (
     <>
       {loading && <Preloader />}
-      <div className="px-5 mx-auto sm:px-24 2xl:max-w-7xl bg-romance ">
+      <div className="px-5 mx-auto sm:px-24 max-w-6xl bg-romance ">
         <Header />
         <main className="">{children}</main>
         <Footer />

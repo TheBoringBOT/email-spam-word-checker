@@ -15,13 +15,13 @@ export default function Header() {
   }
   return (
     <div className="flex justify-between py-5  ">
-      <img src={logo} alt="" width="50" />
+      <img src={logo} alt="" width="60" />
       <button
         onClick={() => setShowModal(!showModal)}
-        className="wave-me transition duration-300 ease-in-out text-slate-500 hover:bg-accent shadow-sm   bg-white hover:text-white py-1 px-3 text-sm rounded"
+        className="wave-me transition duration-300 ease-in-out text-text-primary bg-accent border-2 border-text-primary  hover:bg-accent shadow-sm   font-semibold solid-shadow bg-white  py-1 px-3 text-sm rounded"
         type="button"
       >
-        About <span className="wave">👋</span>
+        About <span className="wave">👀</span>
       </button>
 
       <Transition appear show={showModal} as={Fragment}>
@@ -83,10 +83,10 @@ export default function Header() {
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="wave-me inline-flex justify-center px-4 py-2 text-sm font-medium text-text-primary bg-accent border-2 border-text-primary solid-shadow rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                     onClick={closeModal}
                   >
-                    Close Me
+                    Close Me<span className="wave ml-1"> 🙌🏻</span>
                   </button>
                 </div>
               </div>
