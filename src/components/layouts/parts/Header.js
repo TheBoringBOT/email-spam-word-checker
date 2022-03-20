@@ -39,7 +39,7 @@ export default function Header({ loading }) {
       >
         <button
           onClick={() => setShowModal(!showModal)}
-          className="wave-me transition duration-300 ease-in-out text-text-primary bg-accent border-2 border-text-primary  hover:bg-accent shadow-sm   font-semibold solid-shadow bg-white  py-1 px-3 text-sm rounded"
+          className="wave-me transition duration-300 ease-in-out text-text-primary bg-accent border-2 border-text-primary  hover:bg-accent shadow-sm   font-semibold solid-shadow bg-white  py-1 px-3 text-sm "
           type="button"
         >
           About <span className="wave">👀</span>
@@ -81,7 +81,7 @@ export default function Header({ loading }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white border-2 border-text-primary solid-shadow-2 shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white border-2 border-text-primary solid-shadow-2 ">
                 <Dialog.Title
                   as="h3"
                   className="text-3xl  font-semibold mb-4 leading-7  text-gray-900"
@@ -89,7 +89,7 @@ export default function Header({ loading }) {
                   About this application
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-md text-text-secondary">
+                  <p className="text-md mono-font text-text-secondary">
                     This app was created to assist in getting your email to the
                     recipient inbox and avoid the spam folder. <br />
                     <br /> It's using an extensive list of known spam words
@@ -102,10 +102,10 @@ export default function Header({ loading }) {
                   </p>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-8">
                   <button
                     type="button"
-                    className="wave-me inline-flex justify-center px-4 py-2 text-sm font-medium text-text-primary bg-accent border-2 border-text-primary solid-shadow rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="wave-me transition duration-300 ease-in-out inline-flex justify-center px-4 py-2 text-sm font-medium text-text-primary bg-accent border-2 border-text-primary solid-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                     onClick={closeModal}
                   >
                     Close Me<span className="wave ml-1"> 🙌🏻</span>
