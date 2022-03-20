@@ -15,9 +15,11 @@ function Layout({ children }) {
   return (
     <>
       {loading && <Preloader />}
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <div className="px-5 mx-auto sm:px-24 2xl:max-w-7xl bg-romance ">
+        <Header />
+        <main className="">{children}</main>
+        <Footer />
+      </div>
     </>
   );
 }
