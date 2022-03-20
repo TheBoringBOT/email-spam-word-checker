@@ -9,7 +9,7 @@ import useCheckSpam from "./hooks/useCheckSpam";
 
 function App() {
   const [currentText, setCurrentText] = useState("");
-  const [currentTrue, setCurrentTrue] = useState("no");
+  const [copy, setCopy] = useState(false);
   const [defaultValue, setDefaultValue] = useState(defaultText);
   // const spamWords = useCheckSpam();
 
@@ -28,12 +28,21 @@ function App() {
     }, 2000);
   }, []);
 
+  const copyText = () => {
+    navigator.clipboard.writeText(currentText);
+    setCopy(!copy);
+    setTimeout(() => {
+      setCopy(false);
+    }, 2000);
+  };
+
   return (
     <>
       {loading && <Preloader />}
 
       <Layout loading={loading}>
-        <div className="flex justify-center items-center flex-col py-6">
+        <span className="text-black">{copy}</span>
+        <div className=" text-center flex justify-center items-center flex-col py-6">
           <Transition
             appear={true}
             show={!loading}
@@ -63,7 +72,7 @@ function App() {
             </h2>
           </Transition>
         </div>
-        <div className=" mx-auto grid overflow-hidden grid-cols-3 grid-rows-1 gap-3 my-auto pb-5  min-h-[70vh] ">
+        <div className=" mx-auto grid overflow-hidden grid-cols-3 grid-rows-1 gap-3 my-auto pb-5  min-h-[70vh] px-5 ">
           <div className="box row-span-2 col-span-3 lg:col-span-2 ">
             {/* left content input */}
             <Transition
@@ -77,7 +86,7 @@ function App() {
               leaveFrom="opacity-100 rotate-0 scale-100 "
               leaveTo="opacity-0 scale-95 "
             >
-              <div className=" relative text-gray-100 flex items-center justify-center min-h-5  w-full h-full text-2xl font-bold rounded  flex-col">
+              <div className=" relative text-gray-100 flex items-center justify-center min-h-5  w-full h-full text-2xl font-bold  flex-col">
                 <form
                   onSubmit={handleSubmit}
                   className=" h-full flex flex-col w-full"
@@ -86,9 +95,23 @@ function App() {
                     defaultValue={defaultValue}
                     rows="10"
                     id="text"
-                    className=" text-xl px-4 py-10 h-full shadow-lg shadow-text-secondary/2 bg-white w-full text-slate-500 "
+                    onChange={(e) => setCurrentText(e.target.value)}
+                    className=" mono-font text-xl px-4 py-10 h-full border-2 border-text-primary solid-shadow-2 bg-white w-full text-slate-500 "
                   />
-                </form>{" "}
+                </form>
+
+                {/* Copy text */}
+
+                <button
+                  className={`transition duration-300 ease-in-out text-text-primary absolute bottom-1 right-1 p-3 bg-accent  text-sm hover:opacity-100 
+                      ${copy ? "opacity-100" : "opacity-50"} ${
+                    currentText === "" && "hidden"
+                  }
+                 `}
+                  onClick={() => copyText()}
+                >
+                  {copy ? "🕺🏻 Copied Text" : "Copy To Clipboard"}
+                </button>
               </div>
             </Transition>
           </div>
@@ -107,7 +130,7 @@ function App() {
               leaveFrom="opacity-100 rotate-0 scale-100 "
               leaveTo="opacity-0 scale-95 "
             >
-              <div className="shadow-lg shadow-text-secondary/2  bg-white text-gray-100 flex items-center justify-center w-full  h-full text-2xl min-h-[200px] font-bold rounded"></div>
+              <div className="border-2 border-text-primary solid-shadow-2 bg-white text-gray-100 flex items-center justify-center w-full  h-full text-2xl min-h-[200px] font-bold"></div>
             </Transition>
           </div>
         </div>
