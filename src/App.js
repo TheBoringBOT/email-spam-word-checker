@@ -1,47 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Transition } from "@headlessui/react";
+import { useReadingTime } from "react-hook-reading-time";
+
+// styles
 import "./App.css";
 import detective from "./assets/detective.svg";
 
+//content
 import Layout from "./components/layouts/Layout";
 import Preloader from "./components/layouts/parts/Preloader";
-import useCheckSpam from "./hooks/useCheckSpam";
+
+// components
+import TextArea from "./components/layouts/parts/TextArea";
+
+// data
+import defaultText from "./data/DefaultText";
 
 function App() {
-  const [currentText, setCurrentText] = useState("");
-  const [copy, setCopy] = useState(false);
-  const [defaultValue, setDefaultValue] = useState(defaultText);
-  // const spamWords = useCheckSpam();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { text } = e.target.elements;
-    setCurrentText(text.value);
-  };
-
+  //preloader state
   const [loading, setLoading] = useState(true);
+  // current Text in textarea
+  const [currentText, setCurrentText] = useState(defaultText);
 
-  // hide preloader after
+  // Main hook for analysis
+  const {
+    text, // 1 min read
+    minutes, // 1
+    words, // 168
+  } = useReadingTime(currentText);
+
+  // hide preloader after 2s
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
   }, []);
 
-  const copyText = () => {
-    navigator.clipboard.writeText(currentText);
-    setCopy(!copy);
-    setTimeout(() => {
-      setCopy(false);
-    }, 2000);
-  };
-
   return (
     <>
       {loading && <Preloader />}
 
       <Layout loading={loading}>
-        <span className="text-black">{copy}</span>
         <div className=" text-center flex justify-center items-center flex-col py-6">
           <Transition
             appear={true}
@@ -53,8 +52,9 @@ function App() {
             leaveFrom="opacity-100 rotate-0 scale-100 "
             leaveTo="opacity-0 scale-95 "
           >
-            <h1 className="flex  align-middle items-center text-5xl text-text-primary font-bold">
-              <img width="50" src={detective} alt="" /> Spam Checker
+            <h1 className="flex  flex-col md:flex-row align-middle items-center text-3xl md:text-5xl text-text-primary font-bold">
+              <img width="50" src={detective} alt="" />{" "}
+              <span>Spam Checker</span>
             </h1>
           </Transition>
           <Transition
@@ -67,7 +67,7 @@ function App() {
             leaveFrom="opacity-100 rotate-0 scale-100 "
             leaveTo="opacity-0 scale-95 "
           >
-            <h2 className="pt-1 text-text-primary">
+            <h2 className="pt-1 text-text-primary text-md md:text-lg">
               Paste your email text content here and detect known spammy words.
             </h2>
           </Transition>
@@ -87,31 +87,11 @@ function App() {
               leaveTo="opacity-0 scale-95 "
             >
               <div className=" relative text-gray-100 flex items-center justify-center min-h-5  w-full h-full text-2xl font-bold  flex-col">
-                <form
-                  onSubmit={handleSubmit}
-                  className=" h-full flex flex-col w-full"
-                >
-                  <textarea
-                    defaultValue={defaultValue}
-                    rows="10"
-                    id="text"
-                    onChange={(e) => setCurrentText(e.target.value)}
-                    className=" mono-font text-xl px-4 py-10 h-full border-2 border-text-primary solid-shadow-2 bg-white w-full text-slate-500 "
-                  />
-                </form>
-
+                <TextArea
+                  currentText={currentText}
+                  setCurrentText={setCurrentText}
+                />
                 {/* Copy text */}
-
-                <button
-                  className={`transition duration-300 ease-in-out text-text-primary absolute bottom-1 right-1 p-3 bg-accent  text-sm hover:opacity-100 
-                      ${copy ? "opacity-100" : "opacity-50"} ${
-                    currentText === "" && "hidden"
-                  }
-                 `}
-                  onClick={() => copyText()}
-                >
-                  {copy ? "🕺🏻 Copied Text" : "Copy To Clipboard"}
-                </button>
               </div>
             </Transition>
           </div>
@@ -130,7 +110,30 @@ function App() {
               leaveFrom="opacity-100 rotate-0 scale-100 "
               leaveTo="opacity-0 scale-95 "
             >
-              <div className="border-2 border-text-primary solid-shadow-2 bg-white text-gray-100 flex items-center justify-center w-full  h-full text-2xl min-h-[200px] font-bold"></div>
+              <div className="border-2 border-text-primary solid-shadow-2 bg-white text-text-primary flex pt-10 px-5  justify-start w-full  h-full text-xl min-h-[200px] font-bold">
+                <ul className="w-full">
+                  <li className="my-3 flex justify-between w-full items-center">
+                    <span>Word Count:</span>
+                    <span
+                      className={` p-1 ${
+                        words <= 180 ? "bg-mint" : "bg-warning"
+                      }`}
+                    >
+                      {words}
+                    </span>
+                  </li>
+                  <li className="my-3 flex justify-between w-full items-center">
+                    <span>Read Time:</span>
+                    <span
+                      className={`  p-1 ${
+                        minutes <= 1.5 ? "bg-mint" : "bg-warning"
+                      }`}
+                    >
+                      {text}
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </Transition>
           </div>
         </div>
@@ -138,19 +141,5 @@ function App() {
     </>
   );
 }
-
-const testWords = {
-  a: "dick",
-  b: "fish",
-};
-
-const defaultText = `Dear friend,
-  
-I am a Financial Consultant in control of privately owned funds placed for long term investments.
-
-My client intends to invest these funds in projects. I am willing to finance projects at a guaranteed 5% ROI per annum for projects ranging from 2 years term and above but not exceeding 12 years.
-
-Please answer ASAP.
-`;
 
 export default App;
