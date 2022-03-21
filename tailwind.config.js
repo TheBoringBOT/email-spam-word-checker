@@ -8,6 +8,8 @@ module.exports = {
 
         accent: "#F9E450",
         accent2: "#C1BFFA",
+        mint: "#8effad",
+        warning: "#ff8f8e",
       },
     },
   },
