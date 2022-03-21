@@ -132,6 +132,25 @@ function App() {
                       {text}
                     </span>
                   </li>
+                  <li className="my-10"></li>
+                  <li className="my-3 flex border-2 border-text-primary bg-urgent  solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">Urgent 🚨</span>
+                  </li>
+                  <li className="my-3 flex border-2 border-text-primary bg-profanity  solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">Profanity 🙉</span>
+                  </li>
+                  <li className="my-3 flex border-2 border-text-primary bg-money  solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">Money 💸</span>
+                  </li>
+                  <li className="my-3 flex border-2 border-text-primary bg-shady solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">Shady 🌚</span>
+                  </li>
+                  <li className="my-3 flex border-2 border-text-primary bg-overpromise solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">Overpromise 🧙‍♂️</span>
+                  </li>
+                  <li className="my-3 flex border-2 border-text-primary bg-general solid-shadow-2 p-2 rounded  justify-between w-full items-center">
+                    <span className="">General 👎</span>
+                  </li>
                 </ul>
               </div>
             </Transition>
