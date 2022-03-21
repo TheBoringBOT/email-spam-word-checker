@@ -1,10 +1,11 @@
-const defaultText = `Dear friend,
+const defaultText = `
+Hi Friend,
   
-I am a Financial Consultant in control of privately owned funds placed for long term investments.
+I would like to offer you a fantastic and exclusive deal.
 
-My client intends to invest these funds in projects. I am willing to finance projects at a guaranteed 5% ROI per annum for projects ranging from 2 years term and above but not exceeding 12 years.
+My company is experiencing a boom period and we are currently seeking new investors to join us today.
 
-Please answer ASAP.
+If you're interested and would like to access our services then please answer ASAP.
 
 Best regards,
 

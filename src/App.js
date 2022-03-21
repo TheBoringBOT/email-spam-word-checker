@@ -27,7 +27,7 @@ function App() {
     text, // 1 min read
     minutes, // 1
     words, // 168
-  } = useReadingTime(currentText);
+  } = useReadingTime(currentText ?? "");
 
   // hide preloader after 2s
   useEffect(() => {
@@ -111,7 +111,7 @@ function App() {
               leaveTo="opacity-0 scale-95 "
             >
               <div className="border-2 border-text-primary solid-shadow-2 bg-white text-text-primary flex pt-10 px-5  justify-start w-full  h-full text-xl min-h-[200px] font-bold">
-                <ul className="w-full">
+                <ul className="w-full pb-10">
                   <li className="my-3 flex justify-between w-full items-center">
                     <span>Word Count:</span>
                     <span
