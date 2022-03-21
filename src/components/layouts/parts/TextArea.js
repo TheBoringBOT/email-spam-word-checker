@@ -8,10 +8,6 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
   const [state, copyToClipboard] = useCopyToClipboard(defaultText);
   const [copied, setCopied] = useState(false);
 
-  const testRun = () => {
-    return "fish";
-  };
-
   // Copy to clipboard
   const runCopyToClipboard = (text) => {
     setCopied(true);
@@ -23,7 +19,6 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
 
   const highlight = [
     {
-      component: testRun,
       highlight: SpamWords.urgent,
       className: "bg-urgent",
     },
@@ -52,7 +47,7 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
   return (
     <>
       <div className=" h-full flex flex-col w-full">
-        <div className="area bg-white h-full solid-shadow-2 px-5 py-10 text-slate-500 mono-font text-2xl font-medium">
+        <div className="bg-white h-full border-2 border-text-primary solid-shadow-2 px-5 py-10 text-slate-500 mono-font text-2xl font-medium">
           <HighlightWithinTextarea
             value={currentText}
             onChange={(value) => setCurrentText(value)}
