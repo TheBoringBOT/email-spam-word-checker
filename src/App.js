@@ -126,10 +126,10 @@ function App() {
                     <span>Read Time:</span>
                     <span
                       className={`  p-1 ${
-                        minutes <= 1.5 ? "bg-mint" : "bg-warning"
+                        minutes <= 1.5 && minutes > 0 ? "bg-mint" : "bg-warning"
                       }`}
                     >
-                      {text}
+                      {currentText ? text : "---"}
                     </span>
                   </li>
                   <li className="my-10"></li>
