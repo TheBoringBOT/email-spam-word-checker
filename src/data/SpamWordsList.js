@@ -309,7 +309,6 @@ const SpamWordsList = {
     "Notspam",
     "Number 1",
     "Obligation",
-    "Off",
     "Off everything",
     "Off shore",
     "Offer extended",
