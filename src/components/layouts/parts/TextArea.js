@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import HighlightWithinTextarea from "react-highlight-within-textarea";
 import { useCopyToClipboard, useDebounce } from "react-use";
+import SpamWords from "../../../data/SpamWordsList";
 
 const TextArea = ({ currentText, defaultText, setCurrentText }) => {
   // copy to clipboard
   const [state, copyToClipboard] = useCopyToClipboard(defaultText);
   const [copied, setCopied] = useState(false);
+
+  const testRun = () => {
+    return "fish";
+  };
 
   // Copy to clipboard
   const runCopyToClipboard = (text) => {
@@ -18,16 +23,29 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
 
   const highlight = [
     {
-      highlight: "friend",
-      className: "bg-accent",
+      component: testRun,
+      highlight: SpamWords.urgent,
+      className: "bg-urgent",
     },
     {
-      highlight: "blueberry",
-      className: "bg-accent2",
+      highlight: SpamWords.shady,
+      className: "bg-shady",
     },
     {
-      highlight: /ba(na)*/gi,
-      className: "yellow",
+      highlight: SpamWords.money,
+      className: "bg-money",
+    },
+    {
+      highlight: SpamWords.overpromise,
+      className: "bg-overpromise",
+    },
+    {
+      highlight: SpamWords.general,
+      className: "bg-general",
+    },
+    {
+      highlight: SpamWords.profanity,
+      className: "bg-profanity",
     },
   ];
 
