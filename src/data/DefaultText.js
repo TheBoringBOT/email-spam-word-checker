@@ -1,5 +1,4 @@
-const defaultText = `
-Hi Friend,
+const defaultText = `Hi Friend,
   
 I would like to offer you a fantastic and exclusive deal.
 

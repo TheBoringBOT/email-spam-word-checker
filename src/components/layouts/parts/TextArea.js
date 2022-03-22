@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import HighlightWithinTextarea from "react-highlight-within-textarea";
-import { useCopyToClipboard, useDebounce } from "react-use";
+import { useCopyToClipboard } from "react-use";
 import SpamWords from "../../../data/SpamWordsList";
 
 const TextArea = ({ currentText, defaultText, setCurrentText }) => {
   // copy to clipboard
   const [state, copyToClipboard] = useCopyToClipboard(defaultText);
   const [copied, setCopied] = useState(false);
+  const onChange = (value) => setCurrentText(value);
 
   // Copy to clipboard
   const runCopyToClipboard = (text) => {
@@ -49,9 +50,8 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
       <div className=" h-full flex flex-col w-full">
         <div className="bg-white h-full  border-2 border-text-primary solid-shadow-2 px-5 py-10 text-slate-500 mono-font text-2xl overflow overflow-auto max-h-[70vh] font-medium">
           <HighlightWithinTextarea
-            spellcheck="true"
             value={currentText}
-            onChange={(value) => setCurrentText(value)}
+            onChange={onChange}
             highlight={highlight}
           />
         </div>
