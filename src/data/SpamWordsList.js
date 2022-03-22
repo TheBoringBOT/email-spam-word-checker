@@ -1,5 +1,4 @@
-// list used from https://mailmeteor.com/blog/spam-words
-
+// Updated 22/3/2022
 const SpamWordsList = {
   urgent: [
     /\baccess the dog heads\b/gi,
