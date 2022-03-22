@@ -4,8 +4,8 @@
 
 Free email spam testing tool. A quick and easy way to identify spam trigger words to avoid landing in spam.
 
-### Bugs to fix
+### Known issues
 
-1.  Selecting all text and removing on mobile causes error (tested only on android)
+1.  On brave browser the app will sometimes stop working. This looks to be some issues within Brave browser and not the app itself
 
 Built with: React, Tailwind
