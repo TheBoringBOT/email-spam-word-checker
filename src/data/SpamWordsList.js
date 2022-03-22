@@ -94,6 +94,7 @@ const SpamWordsList = {
     /\bWhile supplies last\b/gi,
     /\bYou are a winner\b/gi,
   ],
+
   shady: [
     /\b0 down\b/gi,
     /\bAll\b/gi,
@@ -158,7 +159,6 @@ const SpamWordsList = {
     /\bEliminate debt\b/gi,
     /\bExplode your business\b/gi,
     /\bFast viagra delivery\b/gi,
-
     /\bFor new customers only\b/gi,
     /\bForeclosure\b/gi,
     /\bFree\b/gi,
@@ -597,7 +597,7 @@ const SpamWordsList = {
     /\bYou will not believe your eyes\b/gi,
   ],
   money: [
-    /\b$$$\b/gi,
+    /[$$$]/gi,
     /\b€€€\b/gi,
     /\b£££\b/gi,
     /\b50% off\b/gi,
@@ -679,7 +679,7 @@ const SpamWordsList = {
     /\bInvestment advice\b/gi,
     /\bLifetime\b/gi,
     /\bLoans\b/gi,
-    /\bMake $\b/gi,
+    /\bMake$\b/gi,
     /\bMoney\b/gi,
     /\bMoney making\b/gi,
     /\bMoney-back guarantee\b/gi,
