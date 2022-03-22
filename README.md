@@ -7,4 +7,5 @@ Free email spam testing tool. A quick and easy way to identify spam trigger word
 ### Known issues
 
 1.  Mobile browsers are not fully supported. draftjs is where the issue lies.
+
 Built with: React, Tailwind
