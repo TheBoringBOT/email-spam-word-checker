@@ -6,6 +6,5 @@ Free email spam testing tool. A quick and easy way to identify spam trigger word
 
 ### Known issues
 
-1.  On brave browser the app will sometimes stop working. This looks to be some issues within Brave browser and not the app itself
-
+1.  Mobile browsers are not fully supported. draftjs is where the issue lies.
 Built with: React, Tailwind
