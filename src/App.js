@@ -36,6 +36,15 @@ function App() {
     }, 2000);
   }, []);
 
+  const runSetCurrentText = (value) => {
+    try {
+      setCurrentText(value);
+      console.log("ran" + " " + value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {loading && <Preloader />}
@@ -88,8 +97,9 @@ function App() {
             >
               <div className=" relative text-gray-100 flex items-center justify-center min-h-5  w-full h-full text-2xl font-bold  flex-col">
                 <TextArea
+                  defaultText={defaultText}
                   currentText={currentText}
-                  setCurrentText={setCurrentText}
+                  setCurrentText={runSetCurrentText}
                 />
                 {/* Copy text */}
               </div>
