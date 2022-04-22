@@ -48,7 +48,7 @@ const TextArea = ({ currentText, defaultText, setCurrentText }) => {
   return (
     <>
       <div className=" h-full flex flex-col w-full">
-        <div className="bg-white h-full  border-2 border-text-primary solid-shadow-2 px-5 py-10 text-slate-500 mono-font text-2xl overflow overflow-auto max-h-[70vh] font-medium">
+        <div className="bg-white h-full  border-2 border-text-primary solid-shadow-2 px-5 py-10 text-slate-500 mono-font text-2xl overflow overflow-auto max-h-[600px] font-medium">
           <HighlightWithinTextarea
             value={currentText}
             onChange={onChange}

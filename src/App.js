@@ -81,8 +81,8 @@ function App() {
             </h2>
           </Transition>
         </div>
-        <div className=" mx-auto grid overflow-hidden grid-cols-3 grid-rows-1 gap-3 my-auto pb-5  min-h-[70vh] px-5 ">
-          <div className="box row-span-2 col-span-3 lg:col-span-2 ">
+        <div className=" mx-auto grid overflow-hidden grid-cols-3 grid-rows-1 gap-3 my-auto pb-5  min-h-[600px] px-5 ">
+          <div className="box row-span-2 col-span-3 lg:col-span-2 min-h-[600px]">
             {/* left content input */}
             <Transition
               appear={true}
@@ -95,7 +95,7 @@ function App() {
               leaveFrom="opacity-100 rotate-0 scale-100 "
               leaveTo="opacity-0 scale-95 "
             >
-              <div className=" relative text-gray-100 flex items-center justify-center min-h-5  w-full h-full text-2xl font-bold  flex-col">
+              <div className=" relative text-gray-100 flex items-center justify-center    w-full h-full text-2xl font-bold  flex-col">
                 <TextArea
                   defaultText={defaultText}
                   currentText={currentText}
@@ -120,7 +120,7 @@ function App() {
               leaveFrom="opacity-100 rotate-0 scale-100 "
               leaveTo="opacity-0 scale-95 "
             >
-              <div className="border-2 border-text-primary solid-shadow-2 bg-white text-text-primary flex pt-10 px-5  justify-start w-full  h-full text-xl min-h-[200px] font-bold">
+              <div className="border-2 border-text-primary solid-shadow-2 bg-white text-text-primary flex pt-10 px-5  justify-start w-full  h-full text-xl min-h-[600px] font-bold">
                 <ul className="w-full pb-10">
                   <li className="my-3 flex justify-between w-full items-center">
                     <span>Word Count:</span>
