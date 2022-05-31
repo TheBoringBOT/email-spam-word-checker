@@ -2,7 +2,6 @@ import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import logo from "../../../assets/logo.svg";
-import githubIcon from "../../../assets/github-mark.svg";
 
 export default function Header({ loading }) {
   const [showModal, setShowModal] = useState(false);
@@ -10,11 +9,8 @@ export default function Header({ loading }) {
     setShowModal(false);
   }
 
-  function openModal() {
-    setShowModal(true);
-  }
   return (
-    <div className="flex justify-between py-5  ">
+    <div className="flex justify-between py-10  ">
       <Transition
         appear={true}
         show={!loading}

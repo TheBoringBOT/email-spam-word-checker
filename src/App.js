@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { useReadingTime } from "react-hook-reading-time";
 
@@ -29,7 +29,7 @@ function App() {
     words, // 168
   } = useReadingTime(currentText ?? "");
 
-  // hide preloader after 2s
+  //hide preloader after 2s
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -39,7 +39,6 @@ function App() {
   const runSetCurrentText = (value) => {
     try {
       setCurrentText(value);
-      console.log("ran" + " " + value);
     } catch (error) {
       console.log(error);
     }
